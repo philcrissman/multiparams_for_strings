@@ -1,0 +1,44 @@
+MultiparamsForStrings
+=====================
+
+Adds a condition to the ActiveRecord::Base#execute_callstack_for_multiparameter_attributes method to allow multiparam attribute assignment for strings.
+
+The use case that inspired the plugin was trying to create a phone number field with 3 separate parts.
+
+Installation
+============
+
+As with any plugin:
+
+Rails 2.3.x:
+
+  script/plugin install path/to/plugin
+  
+Rails 3.0.x:
+
+  rails plugin install path/to/plugin
+
+Caveat: At the time of writing this, the method in ActiveRecord::Base that this plugin overwrites is the same in Rails 2.3 and 3.0, so it should work the same in either version; if this stops working in Rails 3, please let me know.
+
+
+Example
+=======
+
+No view helper is included in the plugin; you'll need to write your own, or write the input fields yourself. For example, your form might have:
+
+ <input id="user_phone_1s" maxlength="3" name="user[phone(1s)]" size="3" type="text">
+ <input id="user_phone_2s" maxlength="3" name="user[phone(2s)]" size="3" type="text">
+ <input id="user_phone_3s" maxlength="4" name="user[phone(3s)]" size="4" type="text">
+
+When you submit this, your params will include:
+
+  :user => {"phone(1s)" => '123', "phone(2s)" => '456', "phone(3s)" => '7890', [etc...] }
+  
+...which ActiveRecord will be able to concatenate so that your finished user will have the phone number '1234567890'
+
+  > User.last.phone
+  => "1234567890"
+
+
+
+Copyright (c) 2011 Phil Crissman, released under the MIT license
