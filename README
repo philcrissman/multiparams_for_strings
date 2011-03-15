@@ -40,5 +40,20 @@ When you submit this, your params will include:
   => "1234567890"
 
 
+Tests
+=====
+
+The tests can be run stand alone; cd to the plugin directory and just
+
+  ruby test/multiparams_for_strings_test.rb
+  
+The tests do assume you have things like Rails and the sqlite3 gem installed.
+
+
+Contributing
+============
+
+If you find a bug or think of a way to improve this, just let me know or submit a pull request. Thanks in advance.
+
 
 Copyright (c) 2011 Phil Crissman, released under the MIT license
