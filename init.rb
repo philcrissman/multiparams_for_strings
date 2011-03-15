@@ -1,1 +1,1 @@
-require 'lib/multiparams_for_strings'
+require 'multiparams_for_strings'
