@@ -12,11 +12,11 @@ As with any plugin:
 
 Rails 2.3.x:
 
-  script/plugin install path/to/plugin
+  script/plugin install git://github.com/philcrissman/multiparams_for_strings.git
   
 Rails 3.0.x:
 
-  rails plugin install path/to/plugin
+  rails plugin install git://github.com/philcrissman/multiparams_for_strings.git
 
 Caveat: At the time of writing this, the method in ActiveRecord::Base that this plugin overwrites is the same in Rails 2.3 and 3.0, so it should work the same in either version; if this stops working in Rails 3, please let me know.
 
